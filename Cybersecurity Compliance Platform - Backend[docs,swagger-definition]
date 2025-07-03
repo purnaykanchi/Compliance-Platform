@@ -1,0 +1,57 @@
+module.exports = {
+  openapi: '3.0.0',
+  info: {
+    title: 'Cybersecurity Compliance Platform API',
+    version: '1.0.0',
+    description: 'API for managing cybersecurity compliance frameworks and assessments',
+    contact: {
+      name: 'API Support',
+      email: 'support@complianceplatform.com',
+    },
+    license: {
+      name: 'MIT',
+    },
+  },
+  servers: [
+    {
+      url: 'http://localhost:5000/api',
+      description: 'Development server',
+    },
+    {
+      url: 'https://api.complianceplatform.com/v1',
+      description: 'Production server',
+    },
+  ],
+  tags: [
+    {
+      name: 'Compliance',
+      description: 'Operations related to compliance assessments',
+    },
+    {
+      name: 'Frameworks',
+      description: 'Operations related to compliance frameworks',
+    },
+    {
+      name: 'Reports',
+      description: 'Operations related to compliance reports',
+    },
+    {
+      name: 'Documents',
+      description: 'Operations related to evidence documents',
+    },
+  ],
+  components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      },
+    },
+    responses: {
+      UnauthorizedError: {
+        description: 'Access token is missing or invalid',
+      },
+    },
+  },
+};
